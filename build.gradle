@@ -10,14 +10,14 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 def ENV = System.getenv()
-def buildTime = ENV.BUILD_TIME ?: new Date().format('yyyyMMddHHmmss')
+def buildTime = ENV.BUILD_TIME ?: (new Date()).format('yyyyMMddHHmmss')
 
 boolean isPreviewBuild = !ENV.TAG || ENV.TAG.matches(".+-.+")
 def buildNumber = !ENV.TAG ? ("${ENV.BUILD_NUMBER ? "build.${ENV.BUILD_NUMBER}" : buildTime}-${project.minecraft_version}") : ""
 version = (ENV.TAG ?: "development") + ((isPreviewBuild && !ENV.TAG) ? "+${buildNumber}" : project.mod_version)
 
 archivesBaseName = project.archives_base_name
-group = project.maven_group as Object
+group = project.maven_group
 
 repositories {
     maven { url "https://maven.shedaniel.me" }
@@ -57,7 +57,7 @@ tasks.withType(JavaCompile).configureEach {
     // We'll use that if it's available, but otherwise we'll use the older option.
     def targetVersion = 8
     if (JavaVersion.current().isJava9Compatible()) {
-        it.options.release = targetVersion as Property<Integer>
+        it.options.release = targetVersion
     }
 }
 
