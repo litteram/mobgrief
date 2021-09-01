@@ -37,9 +37,9 @@ jobs:
           BUILD_TIME: ${{ steps.current-time.outputs.formattedTime }}
           BUILD_NUMBER: ${{ github.run_number }}
         run: ./gradlew assemble
-      - name: Upload release assets to Modrinth & CF
+      - name: Upload release assets to Modrinth
         id: publish_release_assets
-        run: ./gradlew publish
+        run: ./gradlew publishToModrinth
         env:
           BUILD_TIME: ${{ steps.current-time.outputs.formattedTime }}
           BUILD_NUMBER: ${{ github.run_number }}
