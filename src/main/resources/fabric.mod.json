@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "mobgrief",
+  "version": "${version}",
+  "name": "MobGrief",
+  "description": "Changes some of the most annoying type of monster grief. Creeper in primis.",
+  "authors": [
+    "LoGi"
+  ],
+  "contact": {
+    "homepage": "https://minecraft.frenz.click",
+    "sources": "https://github.com/"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/mobgrief/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "click.frenz.mobgrief.MobGrief"
+    ],
+    "client": [
+      "click.frenz.mobgrief.ClientInit"
+    ],
+    "modmenu": [
+      "click.frenz.mobgrief.config.Menu"
+    ]
+  },
+  "mixins": [
+    "mobgrief.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.17.x"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}

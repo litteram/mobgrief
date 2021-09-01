@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "click.frenz.mobgrief.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "CreeperGriefMixin"
+  ],
+  "server": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
